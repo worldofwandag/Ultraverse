@@ -10,3 +10,24 @@
 @import "./css/styles/style.css";
 @import "./css/colors/scheme-01.css";
 @import "./css/styles/coloring.css";
+
+.slick-arrow:before {
+  color: black;
+  font-size: 16px;
+  z-index: 1;
+}
+
+.nft_coll {
+  margin: 0 4px 4px 4px;
+  padding-bottom: 0px;
+}
+
+
+/* .slick-slider {
+  margin-bottom: 24px;
+}
+
+
+.box300 {
+  height: 300px;
+} */

@@ -21,19 +21,19 @@ const HotCollections = () => {
         style={{
           ...style,
           display: "block",
-          background: "white", // White background for the circle
-          borderRadius: "50%", // Make it a circle
-          width: "40px", // Adjust width and height as needed
+          background: "white",
+          borderRadius: "50%",
+          width: "40px",
           height: "40px",
-          lineHeight: "40px", // Vertically center the image
-          textAlign: "center", // Horizontally center the image
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)", // Add a subtle shadow
-          cursor: "pointer", // Indicate it's clickable
-          position: "absolute", // For positioning
-          top: "50%", // Position vertically in the middle of the slider
-          right: "-5px", // Adjust horizontal position (outside the slider)
-          transform: "translateY(-50%)", // Center vertically
-          zIndex: 1, // Ensure it's above the slider content
+          lineHeight: "40px",
+          textAlign: "center",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+          cursor: "pointer",
+          position: "absolute",
+          top: "50%",
+          right: "-5px",
+          transform: "translateY(-50%)",
+          zIndex: 1,
           border: "1px solid lightgray",
           transition: "all ease .5s",
           ":hover": {
@@ -79,7 +79,7 @@ const HotCollections = () => {
           cursor: "pointer",
           position: "absolute",
           top: "50%",
-          left: "-5px", // Position on the left
+          left: "-5px",
           transform: "translateY(-50%)",
           zIndex: 1,
           border: "1px solid lightgray",
@@ -113,34 +113,32 @@ const HotCollections = () => {
     dots: false,
     infinite: true,
     speed: 300,
-    slidesToShow: 4, // Show 4 items on larger screens by default
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 1200, // Adjust breakpoint as needed
+        breakpoint: 1200,
         settings: {
-          slidesToShow: 3, // Show 4 items on screens larger than 1024px
+          slidesToShow: 3,
           slidesToScroll: 1,
-          arrows: true, // Show arrows on larger screens
-        },
-      },
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 2, // Show 2 items on screens smaller than 600px
-          slidesToScroll: 1,
-          arrows: true, // Hide arrows on smaller screens (optional)
-          dots: true,
+          arrows: true,
         },
       },
       {
         breakpoint: 780,
         settings: {
-          slidesToShow: 1, // Show 2 items on screens smaller than 600px
+          slidesToShow: 2,
           slidesToScroll: 1,
-          arrows: true, // Hide arrows on smaller screens (optional)
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
           dots: true,
         },
       },
@@ -160,7 +158,7 @@ const HotCollections = () => {
   useEffect(() => {
     setTimeout(() => {
       fetchCollections();
-    }, 2000);
+    }, 3000);
   }, []);
 
   return (
@@ -179,7 +177,13 @@ const HotCollections = () => {
                 {new Array(4).fill(0).map((_, index) => (
                   <div className="skeleton__loading" key={index}>
                     <div className="nft_coll--loader">
-                      <div className="nft_coll_pp--loader"></div>
+                      <div className="nft_wrap--loader"></div>
+                      <div className="nft_coll_pp--loader">
+                      <i className="fa fa-check"></i>
+                      </div>
+                      
+                      <div className="nft_coll_title--loader"></div>
+                      <div className="nft_coll_code--loader"></div>
                     </div>
                   </div>
                 ))}

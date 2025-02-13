@@ -11,15 +11,17 @@
 @import "./css/colors/scheme-01.css";
 @import "./css/styles/coloring.css";
 
-
-
 .nft_coll {
   margin: 0 4px 4px 4px;
   padding-bottom: 8px;
 }
 
+.nft_coll.arrow__custom:hover {
+  transform: scale(1.05);
+}
+
 .skeleton__loading {
-  height:32vh;
+  height: 29vh;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -31,24 +33,109 @@
   max-height: 300px;
   margin: 4px;
   border-radius: 5px;
-  background-color: rgb(240, 240, 240);
-  
+  border: 2px solid whitesmoke;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 
+.nft_wrap--loader {
+  position: absolute;
+  width: 100%;
+  height: 189px;
+  top: 0px;
+  background-image: linear-gradient(
+    90deg,
+    rgb(253, 253, 253) 0%,
+    rgb(240, 240, 240) 30%
+  );
+}
+
+.nft_wrap--loader:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgb(233, 233, 233),
+    rgb(221, 221, 221),
+    rgb(233, 233, 233)
+  );
+  animation: animate 5s ease infinite;
+  background-size: 500%;
+  filter: blur(1px);
+}
+
+
+.nft_wrap--loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgb(233, 233, 233),
+    rgb(221, 221, 221),
+    rgb(233, 233, 233)
+  );
+  animation: animate 5s ease infinite;
+  background-size: 500%;
+  filter: blur(5px);
+}
+
+
+@keyframes animate {
+  0%
+  {
+    background-position: 0 0;
+  }
+  0%
+  {
+    background-position: 200% 0;
+  }
+}
+
+
+
 .nft_coll_pp--loader {
-  width: 55px;
-  height: 55px;
+  width: 56px;
+  height: 56px;
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
-  /* border: solid 5px #ffffff; */
-  background: #e6e5e5;
+  background-image: linear-gradient(
+    90deg,
+    rgb(253, 253, 253) 0%,
+    rgb(240, 240, 240) 50%
+  );
   position: absolute;
   top: 60%;
+}
+
+.nft_coll_title--loader {
+  border-radius: 3px;
+  height: 15px;
+  width: 100px;
+  background-image: linear-gradient(
+    90deg,
+    rgb(253, 253, 253) 0%,
+    rgb(240, 240, 240) 50%
+  );
+  position: absolute;
+  bottom: 11%;
+}
+.nft_coll_code--loader {
+  border-radius: 3px;
+  height: 15px;
+  width: 50px;
+  background-image: linear-gradient(
+    90deg,
+    rgb(253, 253, 253) 0%,
+    rgb(240, 240, 240) 50%
+  );
+  position: absolute;
+  bottom: 3%;
 }
 
 .slick-dots li button:before {
@@ -57,11 +144,11 @@
 }
 
 .slick-dots {
-    z-index: 2;
+  z-index: 2;
 }
 
 .slick-dots li {
-    pointer-events: auto;
+  pointer-events: auto;
 }
 
 #arrows__custom {
@@ -70,7 +157,7 @@
 
 #arrows__custom:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 .arrow__custom {
@@ -79,5 +166,5 @@
 
 .arrow__custom:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
 }

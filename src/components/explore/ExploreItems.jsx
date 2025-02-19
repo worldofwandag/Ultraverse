@@ -27,23 +27,18 @@ const ExploreItems = () => {
   };
 
   async function applyFilter(filter) {
-    // console.log(filter);
-
-    if (filter === "price_low_to_high") {
+    const filterEndpoints = {
+      price_low_to_high: "price_low_to_high",
+      price_high_to_low: "price_high_to_low",
+      likes_high_to_low: "likes_high_to_low",
+    };
+    if (filterEndpoints[filter]) {
       const { data } = await axios.get(
-        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=price_low_to_high`
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filterEndpoints[filter]}`
       );
       setItems(data);
-    } else if (filter === "price_high_to_low") {
-      const { data } = await axios.get(
-        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=price_high_to_low`
-      );
-      setItems(data);
-    } else if (filter === "likes_high_to_low") {
-      const { data } = await axios.get(
-        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=likes_high_to_low`
-      );
-      setItems(data);
+    } else {
+      console.error("Invalid filter:", filter);
     }
   }
 

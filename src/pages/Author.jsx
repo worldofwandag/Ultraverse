@@ -15,6 +15,7 @@ const Author = () => {
     );
     setPosts(data);
   }
+  // fetchAuthorInfo(posts.find((post) => post.authorId === authorId));
 
   useEffect(() => {
     fetchAuthorInfo();

@@ -8,13 +8,15 @@ const TopSellers = () => {
   const [loading, setLoading] = useState(true);
 
   async function fetchTopSellers() {
-    setLoading(true);
-    // setLoading(true);
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers`
-    );
-    setTopSellers(data);
-    setLoading(false);
+    try {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers`
+      );
+      setTopSellers(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   }
 
   // setTimeOut to test Loading State

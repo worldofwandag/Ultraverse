@@ -146,19 +146,22 @@ const HotCollections = () => {
   };
 
   async function fetchCollections() {
-    setLoading(true);
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`
-    );
-    console.log(data);
-    setCollections(data);
-    setLoading(false);
+    try {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`
+      );
+      console.log(data);
+      setCollections(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   }
 
   useEffect(() => {
     setTimeout(() => {
       fetchCollections();
-    }, 3000);
+    }, 10);
   }, []);
 
   return (
@@ -179,9 +182,9 @@ const HotCollections = () => {
                     <div className="nft_coll--loader">
                       <div className="nft_wrap--loader"></div>
                       <div className="nft_coll_pp--loader">
-                      <i className="fa fa-check"></i>
+                        <i className="fa fa-check"></i>
                       </div>
-                      
+
                       <div className="nft_coll_title--loader"></div>
                       <div className="nft_coll_code--loader"></div>
                     </div>

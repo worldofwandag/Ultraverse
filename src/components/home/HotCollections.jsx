@@ -159,9 +159,7 @@ const HotCollections = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchCollections();
-    }, 10);
+    fetchCollections();
   }, []);
 
   return (

@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import prevArrow from "../../images/chevron-left-solid.svg";
 import nextArrow from "../../images/chevron-right-solid.svg";
 import UseCountdown from "../UI/UseCountdown";
-import Skeleton from "../UI/Skeleton";
+
 
 const NewItems = () => {
   const [newItems, setNewItems] = useState([]);
@@ -161,9 +161,7 @@ const NewItems = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchNewItems();
-    }, 100);
+    fetchNewItems();
   }, []);
 
   return (

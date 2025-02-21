@@ -19,11 +19,8 @@ const TopSellers = () => {
     }
   }
 
-  // setTimeOut to test Loading State
   useEffect(() => {
-    setTimeout(() => {
-      fetchTopSellers();
-    }, 100);
+    fetchTopSellers();
   }, []);
 
   return (

@@ -7,6 +7,9 @@ import "slick-carousel/slick/slick-theme.css";
 import prevArrow from "../../images/chevron-left-solid.svg";
 import nextArrow from "../../images/chevron-right-solid.svg";
 import UseCountdown from "../UI/UseCountdown";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 
 const NewItems = () => {
@@ -250,6 +253,10 @@ const NewItems = () => {
           ) : (
             <Slider {...settings}>
               {newItems.map((newItem) => (
+                <div data-aos="fade-in"
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-out-quad">
+
                 <div
                   // className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                   key={newItem.id}
@@ -318,6 +325,8 @@ const NewItems = () => {
                     </div>
                   </div>
                 </div>
+                    </div>
+
               ))}
             </Slider>
           )}

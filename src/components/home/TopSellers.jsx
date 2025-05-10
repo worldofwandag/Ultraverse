@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const TopSellers = () => {
   const [topSellers, setTopSellers] = useState([]);
@@ -76,22 +79,28 @@ const TopSellers = () => {
                     </li>
                   ))
                 : topSellers.map((topSeller) => (
-                    <li key={topSeller.id}>
-                      <div className="author_list_pp">
-                        <Link to={`/author/${topSeller.authorId}`}>
-                          <img
-                            className="lazy pp-author"
-                            src={topSeller.authorImage}
-                            alt=""
-                          />
-                          <i className="fa fa-check"></i>
-                        </Link>
-                      </div>
-                      <div className="author_list_info">
-                        <Link to="/author">{topSeller.authorName}</Link>
-                        <span>{topSeller.price} ETH</span>
-                      </div>
-                    </li>
+                    <div
+                      data-aos="fade-in"
+                      data-aos-duration="1000"
+                      data-aos-easing="ease-out-quad"
+                    >
+                      <li key={topSeller.id}>
+                        <div className="author_list_pp">
+                          <Link to={`/author/${topSeller.authorId}`}>
+                            <img
+                              className="lazy pp-author"
+                              src={topSeller.authorImage}
+                              alt=""
+                            />
+                            <i className="fa fa-check"></i>
+                          </Link>
+                        </div>
+                        <div className="author_list_info">
+                          <Link to="/author">{topSeller.authorName}</Link>
+                          <span>{topSeller.price} ETH</span>
+                        </div>
+                      </li>
+                    </div>
                   ))}
             </ol>
           </div>

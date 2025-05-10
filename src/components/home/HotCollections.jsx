@@ -7,6 +7,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import prevArrow from "../../images/chevron-left-solid.svg";
 import nextArrow from "../../images/chevron-right-solid.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const HotCollections = () => {
   const [collections, setCollections] = useState([]);
@@ -193,6 +196,10 @@ const HotCollections = () => {
           ) : (
             <Slider {...settings}>
               {collections.map((collection) => (
+
+<div data-aos="fade-in"
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-out-quad">
                 <div className="col-xs-12" key={collection.id}>
                   <div className="nft_coll">
                     <div className="nft_wrap">
@@ -221,6 +228,7 @@ const HotCollections = () => {
                       <span>ERC-{collection.code}</span>
                     </div>
                   </div>
+                </div>
                 </div>
               ))}
             </Slider>
